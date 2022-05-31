@@ -57,12 +57,12 @@ function formatDate(date) {
 
 async function populateCards(v = "latest") {
     console.log("populating")
-    const url = "https://api.jsonbin.io/v3/b/6295b2dd05f31f68b3afa07a/" + v
+    const url = "https://api.jsonbin.io/v3/b/6295e7f0402a5b380216324a/" + v
     const request = new Request(url);
 
     const res = await fetch(request);
     const { record } = await res.json();
-    const { cards } = record;
+    const { links } = record;
 
     const container = document.getElementById("cardContainer");
 
@@ -71,8 +71,8 @@ async function populateCards(v = "latest") {
         container.removeChild(container.firstChild)
     }
 
-    for (let i = 0; i < cards.length; i++) {
-        const cardData = cards[i]
+    for (let i = 0; i < links.length; i++) {
+        const cardData = links[i]
 
         console.log(cardData)
 
@@ -83,46 +83,28 @@ async function populateCards(v = "latest") {
         const cardBody = document.createElement("div")
         cardBody.classList.add("card-body")
 
-        if (cardData.image) {
-            const cardImage = document.createElement("img");
-            cardImage.classList.add("card-img-top")
-            cardImage.src = cardData.image.url
-            cardImage.alt = cardData.image.alt
-            card.appendChild(cardImage)
-        }
-        if (cardData.title) {
-            const cardTitle = document.createElement("h5")
+        if (cardData.name) {
+            const cardTitle = document.createElement("a")
             cardTitle.classList.add("card-header");
-            cardTitle.innerHTML = cardData.title;
+            cardTitle.href = cardData.url
+            cardTitle.innerHTML = cardData.name;
 
             card.appendChild(cardTitle)
         }
 
-        if (cardData.content) {
+        if (cardData.description) {
             const cardContent = document.createElement("div")
             cardContent.classList.add('d-flex', 'flex-column', 'justify-content-center')
-            cardContent.innerHTML = `<button class="btn btn-primary mb-1 text-center" data-bs-toggle="collapse" type="button" data-bs-target="#cardText-${cardUUID}" aria-expanded="false" aria-controls="cardText">View Text</button>
-    <div class="collapse" id="cardText-${cardUUID}">
+            cardContent.innerHTML = `
       <div class="card-text">
-        ${cardData.content}
-      </div>
-    </div>`
+        ${cardData.description}
+      </div>`
             cardBody.appendChild(cardContent)
         }
 
         card.appendChild(cardBody);
 
-        if (cardData.author || cardData.published) {
-            const cardFooter = document.createElement("div")
-            cardFooter.classList.add("card-footer", "text-muted", "text-center", "font-monospace")
-            let text = '';
-            if (cardData.author) text += cardData.author
-            if (cardData.published && cardData.author) text += " - " + formatDate(cardData.published) + " Ago."
-            if (cardData.published && !cardData.author) text += formatDate(cardData.published) + " Ago."
-
-            cardFooter.innerText = text;
-            card.appendChild(cardFooter)
-        }
+        
         container.appendChild(card)
     }
     // container.lastChild.classList.add("mb-5")
