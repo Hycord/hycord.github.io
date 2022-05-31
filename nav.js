@@ -42,7 +42,7 @@ newDom.innerHTML = `
         </ul>
       </li>
       <li class="nav-item">
-        <a href="links/index.html" class="nav-link" data-bs-toggle="tooltip" title="These may not be useful for you, but they act as my link hub/notepad">
+        <a href="https://hycord.is-a.dev/links" class="nav-link" data-bs-toggle="tooltip" title="These may not be useful for you, but they act as my link hub/notepad">
           Useful Links
         </a>
       </li> 
