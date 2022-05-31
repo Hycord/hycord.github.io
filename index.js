@@ -55,14 +55,17 @@ function formatDate(date) {
 
 // console.log(formatDate(1653976882465))
 
-async function populateCards(v = "latest") {
-    console.log("populating")
-    const url = "https://api.jsonbin.io/v3/b/6295b2dd05f31f68b3afa07a/" + v
-    const request = new Request(url);
+async function populateCards(data) {
+    // console.log("populating")
+    // const url = "https://api.jsonbin.io/v3/b/6295ec67402a5b3802163944/" + v
+    // const request = new Request(url);
 
-    const res = await fetch(request);
-    const { record } = await res.json();
+    // const res = await fetch(request, {
+    //     headers: new Headers().append("X-Access-Key", "$2b$10$NA6.SMrjYH/uov9DMvyCkO22AZ5l.qiicFTiZ33xlCfxajQrrwAaG")
+    // });
+    const { record } = JSON.parse(data);
     const { cards } = record;
+
 
     const container = document.getElementById("cardContainer");
 
@@ -128,4 +131,14 @@ async function populateCards(v = "latest") {
     // container.lastChild.classList.add("mb-5")
 }
 
-populateCards()
+let req = new XMLHttpRequest();
+
+    req.onreadystatechange = () => {
+      if (req.readyState == XMLHttpRequest.DONE) {
+        populateCards(req.responseText);
+      }
+    };
+    
+    req.open("GET", "https://api.jsonbin.io/v3/b/6295ec67402a5b3802163944/", true);
+    req.setRequestHeader("X-Access-Key", "$2b$10$NA6.SMrjYH/uov9DMvyCkO22AZ5l.qiicFTiZ33xlCfxajQrrwAaG");
+    req.send();

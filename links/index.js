@@ -55,13 +55,9 @@ function formatDate(date) {
 
 // console.log(formatDate(1653976882465))
 
-async function populateCards(v = "latest") {
-    console.log("populating")
-    const url = "https://api.jsonbin.io/v3/b/6295e7f0402a5b380216324a/" + v
-    const request = new Request(url);
-
-    const res = await fetch(request);
-    const { record } = await res.json();
+async function populateCards(data) {
+    
+    const { record } = JSON.parse(data)
     const { links } = record;
 
     const container = document.getElementById("cardContainer");
@@ -104,10 +100,21 @@ async function populateCards(v = "latest") {
 
         card.appendChild(cardBody);
 
-        
+
         container.appendChild(card)
     }
     // container.lastChild.classList.add("mb-5")
 }
 
-populateCards()
+
+let req = new XMLHttpRequest();
+
+    req.onreadystatechange = () => {
+      if (req.readyState == XMLHttpRequest.DONE) {
+        populateCards(req.responseText);
+      }
+    };
+    
+    req.open("GET", "https://api.jsonbin.io/v3/b/6295ebe4402a5b3802163883/", true);
+    req.setRequestHeader("X-Access-Key", "$2b$10$NA6.SMrjYH/uov9DMvyCkO22AZ5l.qiicFTiZ33xlCfxajQrrwAaG");
+    req.send();

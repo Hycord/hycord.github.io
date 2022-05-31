@@ -41,11 +41,11 @@ newDom.innerHTML = `
           <!-- <p class="d-inline" id="counter">0</p> -->
         </ul>
       </li>
-      <!-- <li class="nav-item">
-        <a href="" class="disabled nav-link">
-          Blog
+      <li class="nav-item">
+        <a href="links/index.html" class="nav-link">
+          Useful Links
         </a>
-      </li> -->
+      </li> 
     </ul>
   </div>
 </div>`
