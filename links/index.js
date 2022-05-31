@@ -57,8 +57,7 @@ function formatDate(date) {
 
 async function populateCards(data) {
     
-    const { record } = JSON.parse(data)
-    const { links } = record;
+    const links = JSON.parse(data)
 
     const container = document.getElementById("cardContainer");
 
@@ -115,6 +114,5 @@ let req = new XMLHttpRequest();
       }
     };
     
-    req.open("GET", "https://api.jsonbin.io/v3/b/6295ebe4402a5b3802163883/", true);
-    req.setRequestHeader("X-Access-Key", "$2b$10$NA6.SMrjYH/uov9DMvyCkO22AZ5l.qiicFTiZ33xlCfxajQrrwAaG");
+    req.open("GET", "https://api.npoint.io/cff848da1c9a2b7e190e", true);
     req.send();

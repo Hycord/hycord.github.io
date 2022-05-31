@@ -56,15 +56,8 @@ function formatDate(date) {
 // console.log(formatDate(1653976882465))
 
 async function populateCards(data) {
-    // console.log("populating")
-    // const url = "https://api.jsonbin.io/v3/b/6295ec67402a5b3802163944/" + v
-    // const request = new Request(url);
 
-    // const res = await fetch(request, {
-    //     headers: new Headers().append("X-Access-Key", "$2b$10$NA6.SMrjYH/uov9DMvyCkO22AZ5l.qiicFTiZ33xlCfxajQrrwAaG")
-    // });
-    const { record } = JSON.parse(data);
-    const { cards } = record;
+    const { cards } = JSON.parse(data);
 
 
     const container = document.getElementById("cardContainer");
@@ -139,6 +132,5 @@ let req = new XMLHttpRequest();
       }
     };
     
-    req.open("GET", "https://api.jsonbin.io/v3/b/6295ec67402a5b3802163944/", true);
-    req.setRequestHeader("X-Access-Key", "$2b$10$NA6.SMrjYH/uov9DMvyCkO22AZ5l.qiicFTiZ33xlCfxajQrrwAaG");
+    req.open("GET", "https://api.npoint.io/35087afa42a4e4049e09", true);
     req.send();
