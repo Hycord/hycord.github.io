@@ -1,18 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width,initial-scale=1'>
+<script src="./index.js" defer></script>
 
-	<title>Svelte app</title>
+  <head>
+    <title>Masen's Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0ecfc36f4c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
 
-	<link rel='icon' type='image/png' href='./favicon.png'>
-	<link rel='stylesheet' href='./global.css'>
-	<link rel='stylesheet' href='./build/bundle.css'>
+<html>
 
-	<script defer src='./build/bundle.js'></script>
-</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+    <div class="container"> <a class="navbar-brand mb-0 h1" href="https://hycord.is-a.dev">Masen Toplak</i></a>
 
-<body>
+      <button type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation Menu"
+        data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav bg-dark">
+          <li class="nav-item dropdown active">
+            <a href="" id="projectsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              class="nav-link dropdown-toggle">
+              Projects
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="projectsDropdown">
+              <li><a href="https://github.com/hycord/hycord.github.io" class="dropdown-item">Portfolio</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown active">
+            <a href="" id="socialsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              class="nav-link dropdown-toggle">
+              Socials
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-center" aria-labelledby="socialsDropdown">
+              <li><a href="https://twitter.com/HycordIsADev"
+                  class="font-monospace text-white text-decoration-none social-logo"><i
+                    class="social-logo fa-brands fa-lg fa-twitter text<-white"></i> Twitter</a></li>
+              <li><a href="https://github.com/hycord"
+                  class="font-monospace text-white text-decoration-none social-logo"><i
+                    class="social-logo fa-brands fa-lg fa-github text-white"></i> Github</a></li>
+              <li><a href="mailto:mtoplak@kish.edu"
+                  class="font-monospace text-white text-decoration-none social-logo"><i
+                    class="social-logo fa-solid fa-lg fa-envelope text-white"></i> Email</a></li>
+              <!-- <p class="d-inline" id="counter">0</p> -->
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="" class="disabled nav-link">
+              Blog
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-secondary flex-grow-1">
+    <main id="cardContainer" class="flex-grow-1 py-1  container flex-fill bg-primary">
+    </main>
+  </div>
 </body>
+
 </html>
