@@ -175,5 +175,5 @@ navReq.onreadystatechange = () => {
   }
 };
 
-navReq.open("GET", "http://api.npoint.io/db128cd94ecd23d88c3d", true);
+navReq.open("GET", "https://api.npoint.io/db128cd94ecd23d88c3d", true);
 navReq.send();

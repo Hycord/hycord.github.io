@@ -79,5 +79,5 @@ let indexReq = new XMLHttpRequest();
       }
     };
     
-    indexReq.open("GET", "http://api.npoint.io/35087afa42a4e4049e09", true);
+    indexReq.open("GET", "https://api.npoint.io/35087afa42a4e4049e09", true);
     indexReq.send();
