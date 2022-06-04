@@ -1,60 +1,3 @@
-let count = 0;
-let counter = document.getElementById("counter");
-setInterval(() => {
-    if (counter) counter.innerText = count++;
-}, 100)
-
-function uuidv4() {
-    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-    );
-}
-
-function formatDate(date) {
-    if (typeof date !== 'object') {
-        date = new Date(date);
-    }
-
-    var seconds = Math.floor((new Date() - date) / 1000);
-    var intervalType;
-
-    var interval = Math.floor(seconds / 31536000);
-    if (interval >= 1) {
-        intervalType = 'Year';
-    } else {
-        interval = Math.floor(seconds / 2592000);
-        if (interval >= 1) {
-            intervalType = 'Month';
-        } else {
-            interval = Math.floor(seconds / 86400);
-            if (interval >= 1) {
-                intervalType = 'Day';
-            } else {
-                interval = Math.floor(seconds / 3600);
-                if (interval >= 1) {
-                    intervalType = "Hour";
-                } else {
-                    interval = Math.floor(seconds / 60);
-                    if (interval >= 1) {
-                        intervalType = "Minute";
-                    } else {
-                        interval = seconds;
-                        intervalType = "Second";
-                    }
-                }
-            }
-        }
-    }
-
-    if (interval > 1 || interval === 0) {
-        intervalType += 's';
-    }
-
-    return interval + ' ' + intervalType;
-}
-
-// console.log(formatDate(1653976882465))
-
 async function populateCards(data) {
     
     const links = JSON.parse(data)
@@ -106,13 +49,13 @@ async function populateCards(data) {
 }
 
 
-let req = new XMLHttpRequest();
+let linksReq = new XMLHttpRequest();
 
-    req.onreadystatechange = () => {
-      if (req.readyState == XMLHttpRequest.DONE) {
-        populateCards(req.responseText);
+    linksReq.onreadystatechange = () => {
+      if (linksReq.readyState == XMLHttpRequest.DONE) {
+        populateCards(linksReq.responseText);
       }
     };
     
-    req.open("GET", "https://api.npoint.io/cff848da1c9a2b7e190e", true);
-    req.send();
+    linksReq.open("GET", "https://api.npoint.io/cff848da1c9a2b7e190e", true);
+    linksReq.send();
