@@ -1,0 +1,8 @@
+.social-logo:hover {
+    opacity: 50%;
+}
+
+.flex-grow-1 {
+    -ms-flex-positive: 1 !important;
+    flex-grow: 1 !important;
+  }
