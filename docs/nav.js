@@ -44,10 +44,10 @@ newDom.innerHTML = `
           <p class="d-inline" id="counter">0</p> -->
         </ul>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="${window.location.origin}/links" class="nav-link" data-bs-toggle="tooltip" title="These may not be useful for you, but they act as my link hub/notepad">
           Useful Links
-        </a>
+        </a> -->
       </li> 
     </ul>
   </div>
