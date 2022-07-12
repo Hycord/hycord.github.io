@@ -22,6 +22,7 @@ newDom.innerHTML = `
         </a>
         <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="projectsDropdown">
           <li><a href="https://github.com/hycord/hycord.github.io" class="dropdown-item">Portfolio</a></li>
+          <li><a href="https://purplet.js.org" class="dropdown-item">Purplet JS</a></li>
           <!-- <li><a href="./test.html" class="dropdown-item">Card test</a></li>
           <li><a href="" class="dropdown-item">null 2</a></li> -->
         </ul>
